@@ -1,58 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>TEST DEV JUNIOR-LANDING PAGE</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estética Aura · Reservas</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h2>INNOVATIONS TOURS</h2>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <header class="site-header">
+        <h1>Estética Aura</h1>
+        <nav>
+            <ul>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#reservar">Reservar</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
-    <section id="hero">
-        <h2>Explore the World with Us</h2>
-        <p>Your adventure starts here! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, voluptatem ratione labore tenetur explicabo facilis qui molestiae natus. Pariatur unde maiores dolore nobis reiciendis modi quis iusto officiis autem doloremque.</p>
-        <button>Learn More</button>
+
+    <section id="hero" class="hero">
+        <h2>Minimalismo. Cuidado. Elegancia.</h2>
+        <p>Agenda tu cita de belleza en minutos. Experiencias sobrias y memorables.</p>
+        <button onclick="document.getElementById('reservar').scrollIntoView({behavior:'smooth'})">Reservar ahora</button>
     </section>
-    <section id="services">
-        <h2>Our Services</h2>
-        <div class="service-list">
-            <div class="service-card">
-                <h3>Adventure Tours</h3>
-                <p>Experience thrilling adventures in exotic locations.</p>
-            </div>
-            <div class="service-card">
-            <h3>Cultural Experiences</h3>
-            <p>Dive into the rich cultures of the world with our guided tours.</p>
-        </div>
-        <div class="service-card">
-            <h3>Relaxation Retreats</h3>
-            <p>Unwind and rejuvenate at our serene retreats.</p>
-        </div>
-        </div>
+
+    <section id="servicios" class="container">
+        <h2>Servicios</h2>
+        <div id="service-list" class="service-list"></div>
     </section>
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Send Message</button>
+
+    <section id="reservar" class="container">
+        <h2>Reserva tu cita</h2>
+        <form id="booking-form" class="card">
+            <label for="service">Servicio</label>
+            <select id="service" required></select>
+
+            <label for="name">Nombre y apellidos</label>
+            <input type="text" id="name" required placeholder="Tu nombre">
+
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" required placeholder="tucorreo@ejemplo.com">
+
+            <label for="datetime">Fecha y hora</label>
+            <input type="datetime-local" id="datetime" required>
+
+            <button type="submit">Confirmar reserva</button>
+            <p id="form-message" class="message" role="status"></p>
         </form>
     </section>
+
+    <section id="contacto" class="container">
+        <h2>Contacto</h2>
+        <p>Av. Belleza 123, Ciudad</p>
+        <p>+00 000 000 000</p>
+    </section>
+
     <footer>
-        <p>&copy; 2025 Innovations Tours. All rights reserved.</p>
+        <p>© 2025 Estética Aura</p>
     </footer>
+
+    <script>
+    const API_BASE = location.hostname === 'localhost' ? 'http://localhost:3001/api' : '/api';
+
+    async function fetchServices() {
+        const res = await fetch(`${API_BASE}/services`);
+        return res.json();
+    }
+
+    function renderServices(services) {
+        const list = document.getElementById('service-list');
+        list.innerHTML = '';
+        services.forEach(s => {
+            const card = document.createElement('div');
+            card.className = 'service-card';
+            card.innerHTML = `
+                <h3>${s.name}</h3>
+                <p>${s.description || ''}</p>
+                <p><strong>${s.durationMinutes} min · $${s.price.toFixed(2)}</strong></p>
+            `;
+            list.appendChild(card);
+        });
+    }
+
+    function populateServiceSelect(services) {
+        const select = document.getElementById('service');
+        select.innerHTML = '<option value="" disabled selected>Selecciona un servicio</option>';
+        services.forEach(s => {
+            const opt = document.createElement('option');
+            opt.value = s.id;
+            opt.textContent = `${s.name} · ${s.durationMinutes} min`;
+            select.appendChild(opt);
+        });
+    }
+
+    document.getElementById('booking-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const message = document.getElementById('form-message');
+        message.textContent = '';
+        const serviceId = Number(document.getElementById('service').value);
+        const clientName = document.getElementById('name').value.trim();
+        const clientEmail = document.getElementById('email').value.trim();
+        const datetime = document.getElementById('datetime').value;
+        if (!serviceId || !clientName || !clientEmail || !datetime) {
+            message.textContent = 'Por favor, completa todos los campos.';
+            return;
+        }
+        const startsAt = new Date(datetime).toISOString();
+        try {
+            const res = await fetch(`${API_BASE}/bookings`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ serviceId, clientName, clientEmail, startsAt })
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || 'Error desconocido');
+            message.textContent = '¡Reserva confirmada! Revisa tu correo.';
+            (e.target).reset();
+        } catch (err) {
+            message.textContent = err.message;
+        }
+    });
+
+    fetchServices().then(s => { renderServices(s); populateServiceSelect(s); });
+    </script>
 </body>
 </html>
