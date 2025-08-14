@@ -20,13 +20,24 @@ header {
     margin: 0 auto;
 
 }
-nav {
+nav ul {
     display: flex;
     gap: 20px;
+    list-style: none;
+
+}
+ol  {
+    padding-left: 20px;
+    margin: 10px 0;
+    list-style: decimal-leading-zero;
+    color: #2c3e50;
+}
+li::marker {
+    color: #3498db;
 }
 a {
     color: white;
-    text-decoration: none;
+ 
     font-weight: bold;
     transition: color 0.3s ease;
 

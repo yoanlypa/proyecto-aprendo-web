@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TEST DEV JUNIOR-LANDING PAGE 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    :root {
+  --primary: #11097e;
+  --secondary: #da6d08;
+  --text: #494952;
+  --dur: 300ms;
+  --ease: cubic-bezier(.2,.8,.2,1);
+}
+
+body{
+  line-height: 1.6;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #fff; /* texto blanco por defecto en el hero */
+}
+
+#hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  padding: 20px;
+  height: 100vh;        /* fallback */
+  min-height: 100svh;   /* mejor en móvil */
+
+  overflow: hidden;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  filter: blur(6px);
+  transform: scale(1.05);   /* evita borde del blur */
+  z-index: 0;
+}
+
+/* Overlay suave para contraste (opcional pero recomendado) */
+#hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.20));
+  z-index: 0;
+}
+
+.hero-content{
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  padding-inline: 20px;
+}
+
+#hero h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 16px;
+  text-shadow: 0 2px 6px rgba(0,0,0,.25);
+}
+
+#hero p {
+  font-size: 1.125rem;
+  margin: 0 auto 20px;
+  max-width: 600px;
+}
+
+/* Botón */
+button {
+  display: inline-block;
+  width: min(100%, 320px);
+  background-color: var(--secondary);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+button:hover { 
+  background-color: var(--text); 
+  transform: translateY(-1px);
+}
+
+/* Accesibilidad teclado */
+button:focus-visible{
+  outline: 3px solid color-mix(in oklab, var(--secondary), white 30%);
+  outline-offset: 3px;
+}
+
+/* Respeto a usuarios con menos animación */
+@media (prefers-reduced-motion: reduce){
+  #hero::before { filter: blur(4px); transform: none; }
+  button { transition: none; }
+}
+</style>
+</head>
+<body>  
+<section id="hero">
+  <div class="hero-content">
+    <h1>Explore the World with Us</h1>
+    <p>Your adventure starts here! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, voluptatem ratione labore tenetur explicabo facilis qui molestiae natus.</p>
+    <button>Get Started</button>
+  </div>
+</section>
+</body>
+</html>
+
