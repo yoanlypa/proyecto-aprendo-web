@@ -45,10 +45,15 @@ h3{font-size:clamp(1.05rem,.8vw + .6rem,1.25rem);font-weight:700}
 .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.1rem;border-radius:999px;font-weight:700;text-decoration:none}
 .btn--primary{background:linear-gradient(180deg,var(--primary),var(--primary-600));color:#fff;border:1px solid rgba(255,255,255,.06);box-shadow:0 14px 28px -12px rgba(59,130,246,.55)}
 .btn--ghost{border:1px solid var(--outline);color:#dbeafe}
+.btn--primary:hover{ box-shadow:0 24px 38px -18px rgba(59,130,246,.65); transform:translateY(-1px); }
 
 /* ===== Secciones genéricas ===== */
 .section{padding: clamp(2.5rem, 6vw, 5rem) 0}
 .section__head{display:grid;gap:.4rem;place-items:start;margin-bottom:1rem}
+
+
+.reveal{ opacity:0; transform:translateY(16px); transition:opacity .5s ease, transform .5s ease; }
+.reveal.is-in{ opacity:1; transform:none; }
 
 /* ===== HERO ===== */
 .hero{position:relative}
@@ -166,6 +171,11 @@ h3{font-size:clamp(1.05rem,.8vw + .6rem,1.25rem);font-weight:700}
   .services-swiper .swiper-slide h3{ font-size: 1.2rem; }
 }
 
+
+.section-sep svg{ display:block; width:100%; height:120px; }
+.section-sep path{ fill:#0b1220; opacity:.9; }
+.service-section{ padding-top:6rem; } /* más respiro arriba */
+
 /* ==========================================================================
    SOBRE MÍ
    ========================================================================== */
@@ -217,6 +227,31 @@ input:focus,select:focus,textarea:focus{border-color:#b6c3d8;box-shadow:0 0 0 3p
    ========================================================================== */
 .footer{border-top:1px solid rgba(148,163,184,.08);margin-top:3rem;padding:2rem 0;background:rgba(11,18,32,.35)}
 .footer__grid{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+/* ==========================================================================
+   BOTÓN FLOTANTE WHATSAPP
+   ========================================================================== */
+.wa-float{
+  position:fixed; right:16px; bottom:16px; z-index:60;
+  background:#25D366; color:#fff; border-radius:999px;
+  width:54px; height:54px; display:grid; place-items:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.25); transition:transform .2s ease;
+}
+.wa-float:hover{ transform:translateY(-2px); }
+
+/* ==========================================================================
+   BARRA DE ACCIONES MÓVIL
+   ========================================================================== */
+.action-bar{
+  position:fixed; left:0; right:0; bottom:0; z-index:55;
+  display:none; grid-template-columns:repeat(3,1fr);
+  background:#0f1a30; border-top:1px solid rgba(255,255,255,.08);
+}
+.action-bar a{
+  text-align:center; padding:.9rem .6rem; color:#dbeafe; font-weight:700; text-decoration:none;
+}
+.action-bar a:nth-child(2){ background:linear-gradient(180deg,var(--primary),var(--primary-600)); color:#fff; }
+@media(max-width:720px){ .action-bar{ display:grid; } .wa-float{ bottom:78px; } }
 
 /* ==========================================================================
    RESPONSIVE GLOBAL

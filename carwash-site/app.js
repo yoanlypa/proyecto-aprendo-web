@@ -107,10 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loop: true,
     speed: 600,
     grabCursor: true,
-    pagination: {
-      el: '.services-swiper .swiper-pagination',
-      clickable: true,
-    },
+
     navigation: {
       nextEl: '.services-swiper .swiper-button-next',
       prevEl: '.services-swiper .swiper-button-prev',
@@ -126,3 +123,5 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   });
 });
+const io = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting && e.target.classList.add('is-in')), {threshold:.12});
+document.querySelectorAll('.section, .card, .swiper-slide').forEach(el=>{ el.classList.add('reveal'); io.observe(el); });
