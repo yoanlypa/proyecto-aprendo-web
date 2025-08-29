@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Features Grid</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root{
+    --bg:#f7f9fc;
+    --card:#ffffff;
+    --line:#e6ecf5;
+    --text:#0b1220;
+    --muted:#5b677a;
+    --primary:#005dab;
+    --radius:14px;
+    --gap:18px;
+    --shadow:0 2px 8px rgba(16,24,40,.06);
+    --shadow-hover:0 6px 18px rgba(16,24,40,.12);
+  }
+
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--text);
+    background:var(--bg);
+  }
+
+  #features{
+    width:min(1100px, 92%);
+    margin:40px auto;
+  }
+  #features h2{
+    margin:0 0 12px;
+    font-size:clamp(1.6rem, 2.5vw, 2rem);
+  }
+  #features p.lead{
+    margin:0 0 22px;
+    color:var(--muted);
+    max-width:60ch;
+  }
+
+  /* GRID */
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap:var(--gap);
+  }
+
+  /* CARD */
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px;
+    box-shadow:var(--shadow);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .card:hover{
+    transform: translateY(-4px);
+    box-shadow:var(--shadow-hover);
+    border-color: color-mix(in oklab, var(--primary), var(--line) 60%);
+  }
+
+  .icon{
+    width:40px; height:40px;
+    border-radius:10px;
+    display:grid; place-items:center;
+    background: color-mix(in oklab, var(--primary), white 80%);
+    color:var(--primary);
+    margin-bottom:10px;
+    font-weight:700;
+  }
+
+  .card h3{
+    margin:6px 0 6px;
+    font-size:1.05rem;
+  }
+  .card p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.55;
+  }
+</style>
+</head>
+<body>
+
+<section id="features" aria-labelledby="features-title">
+  <h2 id="features-title">Why choose us</h2>
+  <p class="lead">Clean HTML, modern CSS Grid, and responsive by default. No JavaScript required.</p>
+
+  <div class="grid">
+    <article class="card">
+      <span class="icon" aria-hidden="true">A</span>
+      <h3>Fast setup</h3>
+      <p>Get started in minutes with a clear structure and tokens.</p>
+    </article>
+
+    <article class="card">
+      <span class="icon" aria-hidden="true">B</span>
+      <h3>Accessible</h3>
+      <p>Keyboard focus, readable contrast, and semantic tags.</p>
+    </article>
+
+    <article class="card">
+      <span class="icon" aria-hidden="true">C</span>
+      <h3>Responsive</h3>
+      <p>Auto-fit columns adapt from mobile to desktop.</p>
+    </article>
+
+    <article class="card">
+      <span class="icon" aria-hidden="true">D</span>
+      <h3>Scalable</h3>
+      <p>Simple styles that can grow into a design system.</p>
+    </article>
+
+    <article class="card">
+      <span class="icon" aria-hidden="true">E</span>
+      <h3>Performant</h3>
+      <p>Lightweight CSS with GPU-friendly transitions.</p>
+    </article>
+
+    <article class="card">
+      <span class="icon" aria-hidden="true">F</span>
+      <h3>Maintainable</h3>
+      <p>Tokens, spacing, and shadows keep things consistent.</p>
+    </article>
+  </div>
+</section>
+
+</body>
+</html>

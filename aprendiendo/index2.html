@@ -91,6 +91,23 @@ button:hover {
   transform: translateY(-1px);
 }
 
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.item {
+  background: #3498db;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+}
+
 /* Accesibilidad teclado */
 button:focus-visible{
   outline: 3px solid color-mix(in oklab, var(--secondary), white 30%);
@@ -112,6 +129,15 @@ button:focus-visible{
     <button>Get Started</button>
   </div>
 </section>
+<section class="gallery">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
+</section>
+
 </body>
 </html>
 
