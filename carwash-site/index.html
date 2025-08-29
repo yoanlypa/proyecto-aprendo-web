@@ -3,32 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title>El Lavaderito - Lavado de coches y limpieza de tapicerías a domicilio</title>
   <meta name="description" content="Servicio profesional de lavado de vehículos y limpieza de tapicerías del hogar a domicilio. Productos ecológicos y equipos de vapor." />
+
+  <!-- Estilos -->
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
+
+  <!-- SEO extra -->
   <link rel="canonical" href="https://el-lavaderito.vercel.app/">
   <meta property="og:title" content="El Lavaderito — Lavado de coches y limpieza a domicilio">
   <meta property="og:description" content="Detailing, interior/exterior y limpieza de tapicerías del hogar con vapor. Reserva online.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://el-lavaderito.vercel.app/assets/og-cover.jpg">
   <meta name="theme-color" content="#0b1220">
-  <script defer src="app.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-
 </head>
 <body>
+
 <header class="header">
   <div class="container nav">
-      <img src="assets/logo.svg" alt="El Lavaderito" class="brand brand--header"/>
+    <img src="assets/logo.svg" alt="El Lavaderito" class="brand brand--header"/>
     <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
@@ -43,18 +43,12 @@
   </div>
 </header>
 
-<!-- HERO SLIDER -->
+<!-- HERO -->
 <section id="hero" class="hero" aria-label="Servicios principales">
-  <div class="hero__slider" data-autoplay="7000">
-    <!-- Botones -->
-    <button class="ctrl ctrl--prev" aria-label="Anterior" data-prev>&larr;</button>
-    <button class="ctrl ctrl--next" aria-label="Siguiente" data-next>&rarr;</button>
-
-    <!-- Slides -->
-    <div class="track">
-      <!-- Vehículos -->
-      <article class="slide is-active">
-        <img src="assets/coche.jpg" alt="" class="slide__img" />
+  <div class="swiper hero-swiper">
+    <div class="swiper-wrapper">
+      <article class="swiper-slide">
+        <img class="slide__img" src="assets/coche.jpg" alt="Lavado y detailing de vehículos">
         <div class="overlay overlay--left"></div>
         <div class="overlay overlay--vignette"></div>
         <div class="slide__content container">
@@ -69,9 +63,8 @@
         </div>
       </article>
 
-      <!-- Hogar -->
-      <article class="slide slide--home">
-        <img src="assets/hogar.jpg" alt="" class="slide__img" />
+      <article class="swiper-slide slide--home">
+        <img class="slide__img" src="assets/hogar.jpg" alt="Limpieza a vapor para el hogar">
         <div class="overlay overlay--left"></div>
         <div class="overlay overlay--vignette"></div>
         <div class="slide__content container">
@@ -87,79 +80,67 @@
       </article>
     </div>
 
-    <!-- Indicadores -->
-    <div class="dots">
-      <button data-dot="0" aria-selected="true"></button>
-      <button data-dot="1" aria-selected="false"></button>
-    </div>
+    <button class="swiper-button-prev slider-btn" aria-label="Anterior">
+      <svg viewBox="0 0 24 24"><path d="M15.5 19l-7-7 7-7"/></svg>
+    </button>
+    <button class="swiper-button-next slider-btn" aria-label="Siguiente">
+      <svg viewBox="0 0 24 24"><path d="M8.5 5l7 7-7 7"/></svg>
+    </button>
   </div>
 </section>
 
-
-<!-- SERVICIOS (Swiper) -->
-<section id="servicios" class="service-section container" aria-label="Nuestros servicios">
-  <h2 class="line-title">Nuestros servicios</h2>
-
-  <div class="swiper services-swiper">
-    <div class="swiper-wrapper">
-      <!-- Slide -->
-      <article class="swiper-slide" style="--bg:url('assets/servicios/lavado-exterior.jpg')">
-        <div class="slide-mask"></div>
-        <div class="slide-desc">
-          <h3>Lavado exterior</h3>
-          <p>Prelavado con espuma activa, llantas y secado microfibra.</p>
-        </div>
-      </article>
-
-      <article class="swiper-slide" style="--bg:url('assets/servicios/interior.jpg')">
-        <div class="slide-mask"></div>
-        <div class="slide-desc">
-          <h3>Interior & Tapicería</h3>
-          <p>Aspirado completo, plásticos, cristales y asientos a vapor.</p>
-        </div>
-      </article>
-
-      <article class="swiper-slide" style="--bg:url('assets/servicios/sofas.jpg')">
-        <div class="slide-mask"></div>
-        <div class="slide-desc">
-          <h3>Sofás y colchones</h3>
-          <p>Higienización profunda a vapor antiácaros, sin residuos.</p>
-        </div>
-      </article>
-
-      <article class="swiper-slide" style="--bg:url('assets/servicios/detailing.jpg')">
-        <div class="slide-mask"></div>
-        <div class="slide-desc">
-          <h3>Detailing</h3>
-          <p>Descontaminado, protección y acabados premium.</p>
-        </div>
-      </article>
-
-      <article class="swiper-slide" style="--bg:url('assets/servicios/moquetas.jpg')">
-        <div class="slide-mask"></div>
-        <div class="slide-desc">
-          <h3>Moquetas & alfombras</h3>
-          <p>Eliminación de manchas y neutralización de olores.</p>
-        </div>
-      </article>
-    </div>
-
-    <!-- Controles -->
-    <div class="swiper-button-prev" aria-label="Anterior"></div>
-    <div class="swiper-button-next" aria-label="Siguiente"></div>
-  </div>
-</section>
+<!-- Separador suave -->
 <div class="section-sep" aria-hidden="true">
   <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
     <path d="M0,96L1440,0L1440,0L0,0Z"></path>
   </svg>
 </div>
 
+<!-- SERVICIOS -->
+<section id="servicios" class="service-section container" aria-label="Nuestros servicios">
+  <h2 class="line-title">Nuestros servicios</h2>
+
+  <div class="swiper services-swiper">
+    <div class="swiper-wrapper">
+      <article class="swiper-slide" style="--bg:url('assets/servicios/lavado-exterior.jpg')" data-servicio="Lavado Exterior">
+        <div class="slide-mask"></div>
+        <div class="slide-desc"><h3>Lavado exterior</h3><p>Prelavado con espuma activa, llantas y secado microfibra.</p></div>
+      </article>
+
+      <article class="swiper-slide" style="--bg:url('assets/servicios/interior.jpg')" data-servicio="Interior & Tapicería">
+        <div class="slide-mask"></div>
+        <div class="slide-desc"><h3>Interior & Tapicería</h3><p>Aspirado completo, plásticos, cristales y asientos a vapor.</p></div>
+      </article>
+
+      <article class="swiper-slide" style="--bg:url('assets/servicios/sofas.jpg')" data-servicio="Sofás & Colchones">
+        <div class="slide-mask"></div>
+        <div class="slide-desc"><h3>Sofás y colchones</h3><p>Higienización profunda a vapor antiácaros, sin residuos.</p></div>
+      </article>
+
+      <article class="swiper-slide" style="--bg:url('assets/servicios/detailing.jpg')" data-servicio="Detailing">
+        <div class="slide-mask"></div>
+        <div class="slide-desc"><h3>Detailing</h3><p>Descontaminado, protección y acabados premium.</p></div>
+      </article>
+
+      <article class="swiper-slide" style="--bg:url('assets/servicios/moquetas.jpg')" data-servicio="Moquetas & Alfombras">
+        <div class="slide-mask"></div>
+        <div class="slide-desc"><h3>Moquetas & alfombras</h3><p>Eliminación de manchas y neutralización de olores.</p></div>
+      </article>
+    </div>
+
+    <button class="swiper-button-prev slider-btn" aria-label="Anterior">
+      <svg viewBox="0 0 24 24"><path d="M15.5 19l-7-7 7-7"/></svg>
+    </button>
+    <button class="swiper-button-next slider-btn" aria-label="Siguiente">
+      <svg viewBox="0 0 24 24"><path d="M8.5 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+</section>
 
 <!-- SOBRE MI -->
 <section id="sobre" class="section about container">
   <div class="about__media">
-    <img src="https://images.unsplash.com/photo-1746079074371-e28f14c76e37?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHBlcnNvbmElMjBmcmVnYW5kbyUyMGNvY2hlfGVufDB8fDB8fHww"/>
+    <img src="https://images.unsplash.com/photo-1746079074371-e28f14c76e37?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHBlcnNvbmElMjBmcmVnYW5kbyUyMGNvY2hlfGVufDB8fDB8fHww" alt="">
   </div>
   <div class="about__text">
     <p class="kicker">Sobre mi</p>
@@ -179,47 +160,51 @@
 </section>
 
 <!-- OPINIONES -->
-<section id="opiniones" class="section container">
+<section id="opiniones" class="section container testi" aria-label="Opiniones de clientes">
   <header class="section__head">
     <p class="kicker">Opiniones</p>
     <h2>Qué dicen <span class="grad">nuestros clientes</span></h2>
   </header>
 
-  <div class="testi" data-autoplay="6500">
-    <button class="testi__ctrl testi__ctrl--prev" aria-label="Anterior">‹</button>
-    <button class="testi__ctrl testi__ctrl--next" aria-label="Siguiente">›</button>
-
-    <div class="testi__track">
-      <article class="t is-active">
-        <p class="t__text">“Dejaron mi coche como nuevo. Puntuales y súper profesionales.”</p>
-        <div class="t__meta">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="Cliente 1"/>
-          <div><strong>María G.</strong><span>Lavado Premium</span></div>
+  <div class="swiper testi-swiper">
+    <div class="swiper-wrapper">
+      <article class="swiper-slide">
+        <div class="t">
+          <p class="t__text">“Dejaron mi coche como nuevo. Puntuales y súper profesionales.”</p>
+          <div class="t__meta">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="">
+            <div><strong>María G.</strong><span>Lavado Premium</span></div>
+          </div>
         </div>
       </article>
 
-      <article class="t">
-        <p class="t__text">“El sofá quedó impecable con la limpieza a vapor. ¡Adiós alergias!”</p>
-        <div class="t__meta">
-          <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=120&q=80" alt="Cliente 2"/>
-          <div><strong>Carlos P.</strong><span>Sofá & Alfombra</span></div>
+      <article class="swiper-slide">
+        <div class="t">
+          <p class="t__text">“El sofá quedó impecable con la limpieza a vapor. ¡Adiós alergias!”</p>
+          <div class="t__meta">
+            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=120&q=80" alt="">
+            <div><strong>Carlos P.</strong><span>Sofá & Alfombra</span></div>
+          </div>
         </div>
       </article>
 
-      <article class="t">
-        <p class="t__text">“Excelente servicio. Detailing muy cuidado y rápido.”</p>
-        <div class="t__meta">
-          <img src="https://images.unsplash.com/photo-1545996124-0501ebae84d0?auto=format&fit=crop&w=120&q=80" alt="Cliente 3"/>
-          <div><strong>Lucía R.</strong><span>Detailing</span></div>
+      <article class="swiper-slide">
+        <div class="t">
+          <p class="t__text">“Excelente servicio. Detailing muy cuidado y rápido.”</p>
+          <div class="t__meta">
+            <img src="https://images.unsplash.com/photo-1545996124-0501ebae84d0?auto=format&fit=crop&w=120&q=80" alt="">
+            <div><strong>Lucía R.</strong><span>Detailing</span></div>
+          </div>
         </div>
       </article>
     </div>
 
-    <div class="testi__dots">
-      <button aria-selected="true"></button>
-      <button aria-selected="false"></button>
-      <button aria-selected="false"></button>
-    </div>
+    <button class="swiper-button-prev slider-btn" aria-label="Anterior">
+      <svg viewBox="0 0 24 24"><path d="M15.5 19l-7-7 7-7"/></svg>
+    </button>
+    <button class="swiper-button-next slider-btn" aria-label="Siguiente">
+      <svg viewBox="0 0 24 24"><path d="M8.5 5l7 7-7 7"/></svg>
+    </button>
   </div>
 </section>
 
@@ -249,7 +234,7 @@
   </form>
 </section>
 
-<!-- INSTAGRAM FEED (mock con enlaces a IG) -->
+<!-- INSTAGRAM -->
 <section class="section container" id="instagram">
   <header class="section__head">
     <p class="kicker">Instagram</p>
@@ -263,7 +248,7 @@
     <a class="ig__item" href="https://www.instagram.com/" target="_blank" rel="noopener">
       <img src="https://images.unsplash.com/photo-1607860253433-9f2f0952c73d?auto=format&fit=crop&w=800&q=80" alt="Espuma activa" loading="lazy"/>
     </a>
-    <a class="ig__item" href="https://images.instagram.com/" target="_blank" rel="noopener">
+    <a class="ig__item" href="https://www.instagram.com/" target="_blank" rel="noopener">
       <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" alt="Interior impecable" loading="lazy"/>
     </a>
     <a class="ig__item" href="https://www.instagram.com/" target="_blank" rel="noopener">
@@ -289,33 +274,21 @@
   </div>
 </footer>
 
-
+<!-- Botón WhatsApp -->
 <a href="https://wa.me/34600000000?text=Hola%20quiero%20una%20cita%20en%20El%20Lavaderito"
    class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <!-- ícono -->
   <svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor" aria-hidden="true">
     <path d="M19.11 17.43c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.62.14-.18.27-.71.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.14-1.31-.79-.7-1.32-1.57-1.48-1.84-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.44-.46-.62-.47h-.53c-.18 0-.48.07-.74.34-.25.27-.97.95-.97 2.32s1 2.69 1.14 2.87c.14.18 1.97 3.01 4.78 4.12.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.6-.66 1.83-1.3.23-.64.23-1.19.16-1.3-.07-.11-.25-.18-.52-.32zM16 3C8.82 3 3 8.82 3 16c0 2.3.62 4.46 1.7 6.32L3 29l6.85-1.7A12.93 12.93 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3z"/>
   </svg>
 </a>
-<nav class="action-bar">
-  <a href="tel:+34600000000">Llamar</a>
-  <a href="#contacto">Reservar</a>
-  <a href="https://wa.me/34600000000?text=Hola%20quiero%20una%20cita" target="_blank" rel="noopener">WhatsApp</a>
-</nav>
+
+<!-- JSON-LD -->
 <script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"LocalBusiness",
- "name":"El Lavaderito",
- "image":"https://el-lavaderito.vercel.app/assets/logo.svg",
- "url":"https://el-lavaderito.vercel.app/",
- "telephone":"+34 600 000 000",
- "areaServed":"Málaga, Costa del Sol",
- "priceRange":"€€",
- "sameAs":["https://www.instagram.com/ellavaderito"],
- "serviceType":["Lavado exterior","Interior & Tapicería","Detailing","Sofás y Colchones","Moquetas & Alfombras"]
-}
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"El Lavaderito","image":"https://el-lavaderito.vercel.app/assets/logo.svg","url":"https://el-lavaderito.vercel.app/","telephone":"+34 600 000 000","areaServed":"Málaga, Costa del Sol","priceRange":"€€","sameAs":["https://www.instagram.com/ellavaderito"],"serviceType":["Lavado exterior","Interior & Tapicería","Detailing","Sofás y Colchones","Moquetas & Alfombras"]}
 </script>
 
+<!-- Scripts: Swiper primero, luego app.js -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

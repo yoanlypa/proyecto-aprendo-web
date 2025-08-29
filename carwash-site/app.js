@@ -1,8 +1,8 @@
-
-/* ===== App.js - Funcionalidades ===== */
+/* ===== Utilidades ===== */
 
 // Año footer
-document.getElementById('year').textContent = new Date().getFullYear();
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // Menú móvil
 const toggle = document.querySelector('.nav-toggle');
@@ -12,116 +12,101 @@ toggle?.addEventListener('click', () => {
   toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
 });
 
-/* ===== Hero Slider ===== */
-class HeroSlider {
-  constructor(root){
-    this.root = root;
-    this.slides = [...root.querySelectorAll('.slide')];
-    this.dots = [...root.querySelectorAll('.dots button')];
-    this.index = 0;
-    this.timer = null;
-    this.autoplay = parseInt(root.dataset.autoplay || '0', 10);
-
-    root.querySelector('[data-prev]').addEventListener('click', ()=>this.go(this.index-1));
-    root.querySelector('[data-next]').addEventListener('click', ()=>this.go(this.index+1));
-    this.dots.forEach((btn,i)=>btn.addEventListener('click',()=>this.go(i)));
-
-    this.go(0,false);
-    if(this.autoplay) this.play();
-
-    // Pause on hover
-    root.addEventListener('mouseenter', ()=>this.pause());
-    root.addEventListener('mouseleave', ()=>this.play());
-  }
-
-  go(i,animate=true){
-    const n = this.slides.length;
-    this.index = (i+n)%n;
-    this.slides.forEach((s,idx)=>{
-      s.classList.toggle('is-active', idx===this.index);
-      s.style.opacity = idx===this.index ? '1' : '0';
-      s.style.transition = animate ? 'opacity .6s ease' : 'none';
-      s.style.position = idx===this.index ? 'relative' : 'absolute';
-      s.style.inset = '0';
+// Animaciones al hacer scroll (reveal)
+const reveals = document.querySelectorAll('.reveal');
+if (reveals.length) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        observer.unobserve(entry.target);
+      }
     });
-    this.dots.forEach((d,idx)=>d.setAttribute('aria-selected', idx===this.index ? 'true' : 'false'));
-  }
-  play(){ if(!this.autoplay) return; this.pause(); this.timer = setInterval(()=>this.go(this.index+1), this.autoplay); }
-  pause(){ if(this.timer) clearInterval(this.timer); }
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
 }
-document.querySelectorAll('.hero__slider').forEach(el=>new HeroSlider(el));
 
-/* ===== Testimonios (mini slider) ===== */
-class Testi {
-  constructor(root){
-    this.root = root;
-    this.items = [...root.querySelectorAll('.t')];
-    this.dots = [...root.querySelectorAll('.testi__dots button')];
-    this.i = 0;
-    this.timer = null;
-    this.autoplay = parseInt(root.dataset.autoplay || '0', 10);
-
-    root.querySelector('.testi__ctrl--prev').addEventListener('click',()=>this.go(this.i-1));
-    root.querySelector('.testi__ctrl--next').addEventListener('click',()=>this.go(this.i+1));
-    this.dots.forEach((d,idx)=>d.addEventListener('click',()=>this.go(idx)));
-
-    this.go(0,false);
-    if(this.autoplay) this.play();
-    root.addEventListener('mouseenter',()=>this.pause());
-    root.addEventListener('mouseleave',()=>this.play());
-  }
-  go(i,animate=true){
-    const n = this.items.length;
-    this.i = (i+n)%n;
-    this.items.forEach((it,idx)=>{
-      it.classList.toggle('is-active', idx===this.i);
-      it.style.display = idx===this.i ? 'block' : 'none';
-      it.style.opacity = idx===this.i ? '1' : '0';
-      it.style.transition = animate ? 'opacity .35s ease' : 'none';
+/* ===== Swipers ===== */
+document.addEventListener('DOMContentLoaded', () => {
+  // HERO
+  const heroEl = document.querySelector('.hero-swiper');
+  if (heroEl) {
+    new Swiper(heroEl, {
+      loop: true,
+      speed: 700,
+      effect: 'slide', // 'fade' para transición suave
+      autoplay: { delay: 5000, disableOnInteraction: false },
+      navigation: {
+        nextEl: '.hero .swiper-button-next',
+        prevEl: '.hero .swiper-button-prev',
+      },
     });
-    this.dots.forEach((d,idx)=>d.setAttribute('aria-selected', idx===this.i ? 'true':'false'));
   }
-  play(){ if(!this.autoplay) return; this.pause(); this.timer = setInterval(()=>this.go(this.i+1), this.autoplay); }
-  pause(){ if(this.timer) clearInterval(this.timer); }
-}
-document.querySelectorAll('.testi').forEach(el=>new Testi(el));
+
+  // SERVICIOS
+  const servicesEl = document.querySelector('.services-swiper');
+  if (servicesEl) {
+    new Swiper(servicesEl, {
+      slidesPerView: 'auto',
+      centeredSlides: true,
+      loop: true,
+      speed: 600,
+      grabCursor: true,
+      navigation: {
+        nextEl: '.service-section .swiper-button-next',
+        prevEl: '.service-section .swiper-button-prev',
+      },
+      breakpoints: {
+        0:   { slidesOffsetBefore: 16, slidesOffsetAfter: 16 },
+        768: { slidesOffsetBefore: 24, slidesOffsetAfter: 24 },
+        1200:{ slidesOffsetBefore: 0,  slidesOffsetAfter: 0  },
+      },
+    });
+
+    // Click en card de servicios → preselecciona servicio y baja al formulario
+    document.querySelectorAll('.services-swiper .swiper-slide').forEach(slide=>{
+      slide.addEventListener('click', ()=>{
+        const servicio = slide.dataset.servicio;
+        const select = document.querySelector('select[name="service"]');
+        if (select && servicio) {
+          const opt = [...select.options].find(o => o.text.trim() === servicio);
+          if (opt) select.value = opt.value || opt.text;
+        }
+        const form = document.getElementById('contacto');
+        form?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+
+  // TESTIMONIOS
+  const testiEl = document.querySelector('.testi-swiper');
+  if (testiEl) {
+    new Swiper(testiEl, {
+      loop: true,
+      speed: 600,
+      autoHeight: true,
+      slidesPerView: 1,
+      navigation: {
+        nextEl: '.testi .swiper-button-next',
+        prevEl: '.testi .swiper-button-prev',
+      },
+    });
+  }
+});
 
 /* ===== Formulario ===== */
 const form = document.getElementById('formBooking');
 const msg  = document.getElementById('formMsg');
-form?.addEventListener('submit', (e)=>{
+
+form?.addEventListener('submit', (e) => {
   e.preventDefault();
   const data = Object.fromEntries(new FormData(form).entries());
   if(!data.name || !data.phone || !data.email || !data.service || !data.date || !data.address){
-    msg.textContent = 'Por favor, completa todos los campos requeridos.'; msg.style.color = '#fca5a5'; return;
+    msg.textContent = 'Por favor, completa todos los campos requeridos.';
+    msg.style.color = '#fca5a5';
+    return;
   }
-  msg.textContent = '¡Gracias! Te contactaremos para confirmar 😊'; msg.style.color = '#7dd3fc';
+  msg.textContent = '¡Gracias! Te contactaremos para confirmar 😊';
+  msg.style.color = '#7dd3fc';
   form.reset();
 });
-/* ===== Carrusel Servicios (Swiper) ===== */
-document.addEventListener('DOMContentLoaded', () => {
-  const servicesSwiper = new Swiper('.services-swiper', {
-    slidesPerView: 'auto',
-    centeredSlides: true,
-    spaceBetween: 0,
-    loop: true,
-    speed: 600,
-    grabCursor: true,
-
-    navigation: {
-      nextEl: '.services-swiper .swiper-button-next',
-      prevEl: '.services-swiper .swiper-button-prev',
-    },
-    // Mejora de tacto en móvil
-    touchStartPreventDefault: false,
-    // Auto play opcional:
-    // autoplay: { delay: 4000, disableOnInteraction: false },
-    breakpoints: {
-      0:   { slidesOffsetBefore: 16, slidesOffsetAfter: 16 },
-      768: { slidesOffsetBefore: 24, slidesOffsetAfter: 24 },
-      1200:{ slidesOffsetBefore: 0,  slidesOffsetAfter: 0  },
-    },
-  });
-});
-const io = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting && e.target.classList.add('is-in')), {threshold:.12});
-document.querySelectorAll('.section, .card, .swiper-slide').forEach(el=>{ el.classList.add('reveal'); io.observe(el); });
