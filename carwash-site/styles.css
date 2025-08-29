@@ -70,9 +70,9 @@ h3{font-size:clamp(1.05rem,.8vw + .6rem,1.25rem);font-weight:700}
 .dots button[aria-selected="true"]{background:#dbeafe;border-color:#dbeafe}
 
 /* Ajuste encuadre Hogar */
-.slide--home .slide__img{object-position:center 40%}
+.slide--home .slide__img{object-position:center 100%}
 @media(max-width:720px){
-  .slide--home .slide__img{object-position:35% 38%;transform:translate(-4%,-6%)}
+  .slide--home .slide__img{object-position:80% 38%}
 }
 
 /* ===== Cards genéricas (si las usas en otros bloques) ===== */
