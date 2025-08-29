@@ -3,7 +3,10 @@
   --primary:#3b82f6; --primary-600:#2563eb;
   --outline: rgba(148,163,184,.22);
   --radius:16px;
-  --header-h: 64px;
+  --header-h: 64px; 
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 /* ===== Base ===== */
@@ -28,7 +31,7 @@ h3{font-size:clamp(1.05rem,.8vw + .6rem,1.25rem);font-weight:700}
 .grad{background:linear-gradient(90deg,#93C5FD,#60A5FA,#3B82F6);-webkit-background-clip:text;background-clip:text;color:transparent}
 
 /* ===== Header ===== */
-.header{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.6);backdrop-filter:blur(10px);border-bottom:1px solid rgba(148,163,184,.08)}
+.header{  position: relative;  padding-top: calc(var(--header-h) + 6px + var(--safe-top));  top:0;  z-index:50;  background:rgba(11,18,32,.6);  backdrop-filter:blur(10px);  border-bottom:1px solid rgba(148,163,184,.08)}
 .nav{display:flex;align-items:center;justify-content:space-between;min-height:64px}
 .brand{font-weight:800;color:#dbeafe;text-decoration:none}
 .brand--header{width:120px;height:auto;fill:#dbeafe}
@@ -102,7 +105,7 @@ h3{font-size:clamp(1.05rem,.8vw + .6rem,1.25rem);font-weight:700}
 
 /* HERO con Swiper */
 .hero .swiper{position:relative}
-.hero .swiper-slide{min-height:clamp(520px,70vh,760px);display:grid;align-items:center;position:relative}
+.hero .swiper-slide{min-height:clamp(520px,70vh,760px);display:grid;align-items:center;position:relative;min-height: calc(100svh - var(--header-h) - var(--safe-top));}
 .hero .swiper-button-prev,.hero .swiper-button-next{top:50%;transform:translateY(-50%)}
 
 /* SERVICIOS (Swiper tipo cards) */
@@ -249,3 +252,19 @@ input:focus,select:focus,textarea:focus{border-color:#b6c3d8;box-shadow:0 0 0 3p
 }
 .action-bar a:nth-child(2){background:linear-gradient(180deg,var(--primary),var(--primary-600));color:#fff}
 @media(max-width:720px){.action-bar{display:grid}.wa-float{bottom:78px}}
+
+
+@supports not (height: 100svh) {
+  .hero .swiper,
+  .hero .swiper-slide{
+    min-height: calc(100vh - var(--header-h) - var(--safe-top));
+  }
+}
+
+/* Ajuste para el “home” shot en móvil (opcional) */
+@media (max-width: 720px){
+  .slide--home .slide__img{ object-position: 70% 40%; }
+}
+
+/* Un poco de aire al final del hero para la home bar de iOS */
+.hero .swiper{ padding-bottom: calc(var(--safe-bottom) + 8px); }
