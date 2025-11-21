@@ -1,5 +1,3 @@
-/* ===== Utilidades ===== */
-
 // Año footer
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -12,49 +10,45 @@ toggle?.addEventListener('click', () => {
   toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
 });
 
-// Animaciones al hacer scroll (reveal)
+// Animaciones reveal
 const reveals = document.querySelectorAll('.reveal');
 if (reveals.length) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-in');
-        observer.unobserve(entry.target);
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
       }
     });
   }, { threshold: 0.12 });
-  reveals.forEach(el => observer.observe(el));
+  reveals.forEach(el => io.observe(el));
 }
 
-/* ===== Swipers ===== */
+// Swiper inits
 document.addEventListener('DOMContentLoaded', () => {
-  // HERO
-  const heroEl = document.querySelector('.hero-swiper');
-  if (heroEl && window.Swiper) {
-    new Swiper(heroEl, {
+  if (window.Swiper) {
+    // HERO
+    new Swiper('.hero-swiper', {
       loop: true,
       speed: 700,
-      effect: 'slide',
-      autoplay: { delay: 5000, disableOnInteraction: false },
+      autoplay: { delay: 6000, disableOnInteraction: false },
       navigation: {
-        nextEl: '.hero .swiper-button-next',
         prevEl: '.hero .swiper-button-prev',
+        nextEl: '.hero .swiper-button-next',
       },
+      keyboard: { enabled: true },
     });
-  }
 
-  // SERVICIOS
-  const servicesEl = document.querySelector('.services-swiper');
-  if (servicesEl && window.Swiper) {
-    new Swiper(servicesEl, {
+    // SERVICIOS
+    new Swiper('.services-swiper', {
       slidesPerView: 'auto',
       centeredSlides: true,
       loop: true,
       speed: 600,
       grabCursor: true,
       navigation: {
-        nextEl: '.service-section .swiper-button-next',
         prevEl: '.service-section .swiper-button-prev',
+        nextEl: '.service-section .swiper-button-next',
       },
       breakpoints: {
         0:   { slidesOffsetBefore: 16, slidesOffsetAfter: 16 },
@@ -63,44 +57,43 @@ document.addEventListener('DOMContentLoaded', () => {
       },
     });
 
-    // Click en card de servicios → preselecciona servicio y baja al formulario
-    document.querySelectorAll('.services-swiper .swiper-slide').forEach(slide=>{
-      slide.addEventListener('click', ()=>{
-        const servicio = slide.dataset.servicio;
-        const select = document.querySelector('select[name="service"]');
-        if (select && servicio) {
-          const opt = Array.from(select.options).find(o => o.text.trim() === servicio);
-          if (opt) select.value = opt.value || opt.text;
-        }
-        document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-  }
-
-  // TESTIMONIOS
-  const testiEl = document.querySelector('.testi-swiper');
-  if (testiEl && window.Swiper) {
-    new Swiper(testiEl, {
+    // TESTIMONIOS
+    new Swiper('.testi-swiper', {
       loop: true,
       speed: 600,
       autoHeight: true,
       slidesPerView: 1,
       navigation: {
-        nextEl: '.testi .swiper-button-next',
         prevEl: '.testi .swiper-button-prev',
+        nextEl: '.testi .swiper-button-next',
       },
+      keyboard: { enabled: true },
     });
   }
+
+  // Click en card de servicios → autoseleccionar en el form
+  document.querySelectorAll('.services-swiper .swiper-slide').forEach(slide => {
+    slide.addEventListener('click', () => {
+      const servicio = slide.dataset.servicio;
+      const select = document.querySelector('select[name="service"]');
+      if (select && servicio) {
+        const opt = Array.from(select.options).find(o => o.text.trim() === servicio);
+        if (opt) select.value = opt.value || opt.text;
+      }
+      document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
 });
 
-/* ===== Formulario ===== */
+// Formulario
 const form = document.getElementById('formBooking');
 const msg  = document.getElementById('formMsg');
-
 form?.addEventListener('submit', (e) => {
   e.preventDefault();
   const data = Object.fromEntries(new FormData(form).entries());
-  if(!data.name || !data.phone || !data.email || !data.service || !data.date || !data.address){
+  const required = ['name','phone','email','service','date','address'];
+  const missing = required.filter(k => !data[k]);
+  if (missing.length) {
     msg.textContent = 'Por favor, completa todos los campos requeridos.';
     msg.style.color = '#fca5a5';
     return;
@@ -109,3 +102,37 @@ form?.addEventListener('submit', (e) => {
   msg.style.color = '#7dd3fc';
   form.reset();
 });
+/* ====== Header mobile nav ====== */
+(function(){
+  const toggle = document.querySelector('.nav-toggle');
+  const menu   = document.getElementById('menu');
+
+  if(!toggle || !menu) return;
+
+  const links = menu.querySelectorAll('a');
+
+  function openMenu(){
+    menu.classList.add('open');
+    document.body.classList.add('no-scroll');
+    toggle.setAttribute('aria-expanded','true');
+    // foco accesible
+    setTimeout(()=> links[0]?.focus(), 0);
+  }
+  function closeMenu(){
+    menu.classList.remove('open');
+    document.body.classList.remove('no-scroll');
+    toggle.setAttribute('aria-expanded','false');
+    toggle.focus();
+  }
+  function toggleMenu(){
+    (menu.classList.contains('open')) ? closeMenu() : openMenu();
+  }
+
+  toggle.addEventListener('click', toggleMenu);
+  // cerrar al hacer click en un enlace
+  links.forEach(a => a.addEventListener('click', closeMenu));
+  // cerrar con ESC
+  window.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+  });
+})();
