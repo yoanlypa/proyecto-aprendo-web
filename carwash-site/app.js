@@ -30,11 +30,11 @@ if (reveals.length) {
 document.addEventListener('DOMContentLoaded', () => {
   // HERO
   const heroEl = document.querySelector('.hero-swiper');
-  if (heroEl) {
+  if (heroEl && window.Swiper) {
     new Swiper(heroEl, {
       loop: true,
       speed: 700,
-      effect: 'slide', // 'fade' para transición suave
+      effect: 'slide',
       autoplay: { delay: 5000, disableOnInteraction: false },
       navigation: {
         nextEl: '.hero .swiper-button-next',
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // SERVICIOS
   const servicesEl = document.querySelector('.services-swiper');
-  if (servicesEl) {
+  if (servicesEl && window.Swiper) {
     new Swiper(servicesEl, {
       slidesPerView: 'auto',
       centeredSlides: true,
@@ -69,18 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const servicio = slide.dataset.servicio;
         const select = document.querySelector('select[name="service"]');
         if (select && servicio) {
-          const opt = [...select.options].find(o => o.text.trim() === servicio);
+          const opt = Array.from(select.options).find(o => o.text.trim() === servicio);
           if (opt) select.value = opt.value || opt.text;
         }
-        const form = document.getElementById('contacto');
-        form?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
   }
 
   // TESTIMONIOS
   const testiEl = document.querySelector('.testi-swiper');
-  if (testiEl) {
+  if (testiEl && window.Swiper) {
     new Swiper(testiEl, {
       loop: true,
       speed: 600,
