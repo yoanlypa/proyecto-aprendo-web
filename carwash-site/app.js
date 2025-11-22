@@ -2,14 +2,6 @@
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Menú móvil
-const toggle = document.querySelector('.nav-toggle');
-const menu = document.getElementById('menu');
-toggle?.addEventListener('click', () => {
-  const open = menu.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-});
-
 // Animaciones reveal
 const reveals = document.querySelectorAll('.reveal');
 if (reveals.length) {
@@ -102,37 +94,58 @@ form?.addEventListener('submit', (e) => {
   msg.style.color = '#7dd3fc';
   form.reset();
 });
-/* ====== Header mobile nav ====== */
-(function(){
+
+/* ====== Header mobile nav (único bloque del menú) ====== */
+(() => {
   const toggle = document.querySelector('.nav-toggle');
   const menu   = document.getElementById('menu');
+  if (!toggle || !menu) return;
 
-  if(!toggle || !menu) return;
+  const links  = Array.from(menu.querySelectorAll('a'));
 
-  const links = menu.querySelectorAll('a');
-
-  function openMenu(){
+  const openMenu = () => {
     menu.classList.add('open');
     document.body.classList.add('no-scroll');
-    toggle.setAttribute('aria-expanded','true');
-    // foco accesible
-    setTimeout(()=> links[0]?.focus(), 0);
-  }
-  function closeMenu(){
+    toggle.setAttribute('aria-expanded', 'true');
+    // foco accesible: llevar foco al primer enlace del menú
+    setTimeout(() => links[0]?.focus(), 0);
+  };
+
+  const closeMenu = () => {
     menu.classList.remove('open');
     document.body.classList.remove('no-scroll');
-    toggle.setAttribute('aria-expanded','false');
+    toggle.setAttribute('aria-expanded', 'false');
     toggle.focus();
-  }
-  function toggleMenu(){
-    (menu.classList.contains('open')) ? closeMenu() : openMenu();
-  }
+  };
 
-  toggle.addEventListener('click', toggleMenu);
-  // cerrar al hacer click en un enlace
+  const toggleMenu = () => {
+    menu.classList.contains('open') ? closeMenu() : openMenu();
+  };
+
+  // Botón hamburguesa
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation(); // no propaga al documento
+    toggleMenu();
+  });
+
+  // Cerrar al pulsar un enlace
   links.forEach(a => a.addEventListener('click', closeMenu));
-  // cerrar con ESC
-  window.addEventListener('keydown', (e)=>{
-    if(e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+
+  // Cerrar al tocar/clic fuera del menú
+  document.addEventListener('click', (e) => {
+    if (!menu.classList.contains('open')) return;
+    const clickInsideMenu = menu.contains(e.target) || toggle.contains(e.target);
+    if (!clickInsideMenu) closeMenu();
+  });
+
+  // Cerrar con ESC
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+  });
+
+  // Defensa: al cambiar de tamaño a desktop, resetea estado
+  const mq = window.matchMedia('(min-width: 721px)');
+  mq.addEventListener?.('change', (ev) => {
+    if (ev.matches) closeMenu();
   });
 })();
