@@ -149,3 +149,52 @@ form?.addEventListener('submit', (e) => {
     if (ev.matches) closeMenu();
   });
 })();
+// Cookie modal
+(() => {
+  const modal = document.getElementById('cookie-modal');
+  if (!modal) return;
+
+  const acceptBtn = document.getElementById('cookie-accept');
+  const backdrop = modal.querySelector('.cookie-modal__backdrop');
+
+  const openModal = () => {
+    modal.classList.add('is-open');
+    document.body.classList.add('no-scroll');
+    modal.setAttribute('aria-hidden', 'false');
+  };
+
+  const closeModal = () => {
+    modal.classList.remove('is-open');
+    document.body.classList.remove('no-scroll');
+    modal.setAttribute('aria-hidden', 'true');
+  };
+
+  // Mirar si ya tenemos preferencia guardada
+  let pref = null;
+  try {
+    pref = localStorage.getItem('cookiePreference');
+  } catch (e) {}
+
+  // Si no hay nada guardado, abrimos el modal
+  if (!pref) {
+    openModal();
+  }
+
+  // Aceptar cookies (solo técnicas)
+  acceptBtn?.addEventListener('click', () => {
+    try {
+      localStorage.setItem('cookiePreference', 'necessary');
+    } catch (e) {}
+    closeModal();
+  });
+
+  // Cerrar haciendo clic en el fondo
+  backdrop?.addEventListener('click', closeModal);
+
+  // Cerrar con ESC
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+      closeModal();
+    }
+  });
+})();

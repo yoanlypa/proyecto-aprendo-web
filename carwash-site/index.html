@@ -1,319 +1,567 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>El Lavaderito · Lavado de autos y limpieza a vapor</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>El Lavaderito · Lavado de autos y limpieza a vapor</title>
 
-  <!-- Fuente + preconnect -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Fuente + preconnect -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- SEO básico -->
-  <meta name="description" content="El Lavaderito: limpieza profesional de vehículos y tapicerías del hogar a vapor. Servicio a domicilio en Málaga y alrededores.">
-  <link rel="canonical" href="https://tudominio.com/">
+    <!-- SEO básico -->
+    <meta
+      name="description"
+      content="El Lavaderito: limpieza profesional de vehículos y tapicerías del hogar a vapor. Servicio a domicilio en Málaga y alrededores."
+    />
+    <link rel="canonical" href="https://tudominio.com/" />
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="El Lavaderito · Lavado de autos y limpieza a vapor">
-  <meta property="og:description" content="Exterior/Interior, tapicería, sofás, colchones y moquetas. Vamos a tu domicilio.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1607860101182-7cdb39f4a3d6?auto=format&fit=crop&w=1200&q=80">
-  <meta property="og:url" content="https://tudominio.com/">
-  <meta name="twitter:card" content="summary_large_image">
+    <!-- Open Graph / Twitter -->
+    <meta
+      property="og:title"
+      content="El Lavaderito · Lavado de autos y limpieza a vapor"
+    />
+    <meta
+      property="og:description"
+      content="Exterior/Interior, tapicería, sofás, colchones y moquetas. Vamos a tu domicilio."
+    />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1607860101182-7cdb39f4a3d6?auto=format&fit=crop&w=1200&q=80"
+    />
+    <meta property="og:url" content="https://tudominio.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css" />
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f6bd.svg">
-  <meta name="theme-color" content="#0b1220">
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@10/swiper-bundle.min.css"
+    />
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="icon"
+      href="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f6bd.svg"
+    />
+    <meta name="theme-color" content="#0b1220" />
 
-  <!-- LocalBusiness JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"El Lavaderito",
-    "url":"https://tudominio.com/",
-    "telephone":"+34 600 000 000",
-    "image":"https://images.unsplash.com/photo-1607860101182-7cdb39f4a3d6?auto=format&fit=crop&w=1200&q=80",
-    "priceRange":"€€",
-    "address":{"@type":"PostalAddress","addressLocality":"Málaga","addressCountry":"ES"},
-    "areaServed":"Málaga y alrededores",
-    "openingHours":"Mo-Su 09:00-20:00",
-    "sameAs":["https://instagram.com/tuusuario"]
-  }
-  </script>
-</head>
-<body>
-<header class="header">
-  <div class="container nav">
-    <a class="brand" href="#hero" aria-label="El Lavaderito">
-      <!-- usa tu logo local -->
-      <img src="assets/logo.svg" alt="El Lavaderito" class="brand-logo">
-    </a>
+    <!-- LocalBusiness JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "El Lavaderito",
+        "url": "https://tudominio.com/",
+        "telephone": "+34 600 000 000",
+        "image": "https://images.unsplash.com/photo-1607860101182-7cdb39f4a3d6?auto=format&fit=crop&w=1200&q=80",
+        "priceRange": "€€",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Málaga",
+          "addressCountry": "ES"
+        },
+        "areaServed": "Málaga y alrededores",
+        "openingHours": "Mo-Su 09:00-20:00",
+        "sameAs": ["https://instagram.com/tuusuario"]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container nav">
+        <a class="brand" href="#hero" aria-label="El Lavaderito">
+          <!-- usa tu logo local -->
+          <img src="assets/logo.svg" alt="El Lavaderito" class="brand-logo" />
+        </a>
 
-    <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </button>
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="menu"
+          aria-label="Abrir menú"
+        >
+          <span></span><span></span><span></span>
+        </button>
 
-    <nav id="menu" class="menu">
-      <a href="#hero">Inicio</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#about">Sobre mí</a>
-      <a href="#opiniones">Opiniones</a>
-      <a href="#contacto">Contacto</a>
-      <a class="btn btn--primary" href="#contacto">Reservar</a>
-    </nav>
+        <nav id="menu" class="menu">
+          <a href="#hero">Inicio</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#about">Sobre mí</a>
+          <a href="#opiniones">Opiniones</a>
+          <a href="#contacto">Contacto</a>
+          <a class="btn btn--primary" href="#contacto">Reservar</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero" class="hero" aria-label="Servicios principales">
+      <div
+        class="swiper hero-swiper"
+        role="region"
+        aria-roledescription="carrusel"
+        aria-label="Servicios destacados"
+      >
+        <div class="swiper-wrapper">
+          <!-- Slide Vehículos -->
+          <div class="swiper-slide slide">
+            <img
+              class="slide__img"
+              src="assets/car.jpg"
+              alt=""
+              fetchpriority="high"
+              decoding="async"
+            />
+            <div class="overlay overlay--left"></div>
+            <div class="overlay overlay--vignette"></div>
+            <div class="slide__content container">
+              <p class="kicker">Vehículos</p>
+              <h1>
+                Brillo total para tu
+                <span class="grad">auto, moto o furgoneta</span>
+              </h1>
+              <p class="sub">
+                Exterior + interior, tapicería y detailing profesional a
+                domicilio.
+              </p>
+              <div class="cta">
+                <a href="#contacto" class="btn btn--primary">Reservar ahora</a>
+                <a href="#servicios" class="btn btn--ghost">Ver más</a>
+              </div>
+              <ul class="tags">
+                <li>Exterior</li>
+                <li>Interior</li>
+                <li>Tapicería</li>
+                <li>Detailing</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Slide Hogar -->
+          <div class="swiper-slide slide slide--home">
+            <img
+              class="slide__img"
+              src="assets/hogar.jpg"
+              alt="Limpieza a vapor de tapicerías"
+              decoding="async"
+            />
+            <div class="overlay overlay--left"></div>
+            <div class="overlay overlay--vignette"></div>
+            <div class="slide__content container">
+              <p class="kicker">Hogar</p>
+              <h2>
+                Tapicerías y <span class="grad">moquetas impecables</span>
+              </h2>
+              <p class="sub">
+                Sofás, colchones y alfombras con higienización profunda a vapor.
+              </p>
+              <div class="cta">
+                <a href="#contacto" class="btn btn--primary">Cotizar</a>
+                <a href="#servicios" class="btn btn--ghost">Saber más</a>
+              </div>
+              <ul class="tags">
+                <li>Sofás</li>
+                <li>Colchones</li>
+                <li>Moquetas</li>
+                <li>Vapor Pro</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controles -->
+        <button class="swiper-button-prev slider-btn" aria-label="Anterior">
+          <svg viewBox="0 0 24 24">
+            <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+          </svg>
+        </button>
+        <button class="swiper-button-next slider-btn" aria-label="Siguiente">
+          <svg viewBox="0 0 24 24">
+            <path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Separador -->
+    <div class="section-sep" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path
+          d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z"
+        ></path>
+      </svg>
+    </div>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="service-section container reveal">
+      <header class="section__head">
+        <p class="kicker">Servicios</p>
+        <h2>Nuestros <span class="grad">servicios</span> principales</h2>
+        <p class="sub">
+          Limpieza integral de vehículos y del hogar con equipos profesionales a
+          vapor.
+        </p>
+      </header>
+
+      <div class="swiper services-swiper" aria-label="Servicios en carrusel">
+        <div class="swiper-wrapper">
+          <div
+            class="swiper-slide"
+            data-servicio="Exterior"
+            style="
+              --bg: url(https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1200&q=80);
+            "
+          >
+            <div class="slide-mask"></div>
+            <div class="slide-desc">
+              <h3>Exterior Pro</h3>
+              <p>Espuma activa, llantas y sellador rápido.</p>
+            </div>
+          </div>
+          <div
+            class="swiper-slide"
+            data-servicio="Tapicería"
+            style="
+              --bg: url(https://images.unsplash.com/photo-1597007255353-0826f31f2f2b?auto=format&fit=crop&w=1200&q=80);
+            "
+          >
+            <div class="slide-mask"></div>
+            <div class="slide-desc">
+              <h3>Interior & Tapicería</h3>
+              <p>Aspirado profundo y textiles a vapor.</p>
+            </div>
+          </div>
+          <div
+            class="swiper-slide"
+            data-servicio="Detailing"
+            style="
+              --bg: url(https://images.unsplash.com/photo-1618835962148-cf2b0f1f2e8f?auto=format&fit=crop&w=1200&q=80);
+            "
+          >
+            <div class="slide-mask"></div>
+            <div class="slide-desc">
+              <h3>Detailing</h3>
+              <p>Descontaminado, cera/sellador y detalles finos.</p>
+            </div>
+          </div>
+          <div
+            class="swiper-slide"
+            data-servicio="Sofás/Colchones"
+            style="
+              --bg: url(https://images.unsplash.com/photo-1582582494700-74e4b0e3d5e3?auto=format&fit=crop&w=1200&q=80);
+            "
+          >
+            <div class="slide-mask"></div>
+            <div class="slide-desc">
+              <h3>Sofás & Colchones</h3>
+              <p>Higienización a vapor y neutralización de olores.</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="swiper-button-prev slider-btn" aria-label="Anterior">
+          <svg viewBox="0 0 24 24">
+            <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+          </svg>
+        </button>
+        <button class="swiper-button-next slider-btn" aria-label="Siguiente">
+          <svg viewBox="0 0 24 24">
+            <path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="about" class="section container about reveal">
+      <div>
+        <p class="kicker">Sobre mí</p>
+        <h2>Somos <span class="grad">El Lavaderito</span></h2>
+        <p class="sub">
+          Más de 5 años dejando impecables vehículos y hogares. Usamos químicos
+          biodegradables y maquinaria de vapor profesional. Servicio a domicilio
+          con horarios flexibles.
+        </p>
+        <ul class="ticks">
+          <li>Eco-friendly</li>
+          <li>24h respuesta</li>
+          <li>4.9/5 clientes</li>
+        </ul>
+        <div class="about__stats">
+          <div><strong>1.5K+</strong><span>Servicios</span></div>
+          <div><strong>5+</strong><span>Años</span></div>
+          <div><strong>4.9</strong><span>Valoración</span></div>
+        </div>
+      </div>
+      <div class="about__media">
+        <img
+          src="assets/yotrabajando.jpg"
+          alt="yo trabajando"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </section>
+
+    <!-- OPINIONES -->
+    <section id="opiniones" class="section container testi reveal">
+      <header class="section__head">
+        <p class="kicker">Opiniones</p>
+        <h2>Qué dicen <span class="grad">nuestros clientes</span></h2>
+      </header>
+
+      <div class="swiper testi-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <article class="t">
+              <p class="t__text">
+                “Llegaron puntuales y dejaron el coche como nuevo. La tapicería
+                quedó perfecta. Repetiré.”
+              </p>
+              <div class="t__meta">
+                <img src="https://i.pravatar.cc/80?img=12" alt="" />
+                <div>
+                  <strong>María G.</strong>
+                  <div>Lavado Premium</div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="swiper-slide">
+            <article class="t">
+              <p class="t__text">
+                “Súper recomendados. El sofá perdió manchas antiguas y el olor
+                desapareció al instante.”
+              </p>
+              <div class="t__meta">
+                <img src="https://i.pravatar.cc/80?img=18" alt="" />
+                <div>
+                  <strong>Pablo R.</strong>
+                  <div>Sofá a vapor</div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="swiper-slide">
+            <article class="t">
+              <p class="t__text">
+                “Excelente trato y acabado espejo. Las llantas quedaron
+                espectaculares.”
+              </p>
+              <div class="t__meta">
+                <img src="https://i.pravatar.cc/80?img=7" alt="" />
+                <div>
+                  <strong>Laura M.</strong>
+                  <div>Detailing</div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <button class="swiper-button-prev slider-btn" aria-label="Anterior">
+          <svg viewBox="0 0 24 24">
+            <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+          </svg>
+        </button>
+        <button class="swiper-button-next slider-btn" aria-label="Siguiente">
+          <svg viewBox="0 0 24 24">
+            <path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section container contact reveal">
+      <header class="section__head">
+        <p class="kicker">Contacto</p>
+        <h2>Reserva o <span class="grad">pide presupuesto</span></h2>
+      </header>
+      <form class="form" id="formBooking" novalidate>
+        <div class="form__grid">
+          <label
+            >Nombre<input name="name" required placeholder="Tu nombre"
+          /></label>
+          <label
+            >Teléfono<input
+              name="phone"
+              type="tel"
+              required
+              placeholder="+34 600 000 000"
+          /></label>
+          <label
+            >Email<input
+              name="email"
+              type="email"
+              required
+              placeholder="tu@email.com"
+          /></label>
+          <label
+            >Servicio<select name="service" required>
+              <option value="">Selecciona…</option>
+              <option>Exterior</option>
+              <option>Interior</option>
+              <option>Tapicería</option>
+              <option>Detailing</option>
+              <option>Sofás/Colchones</option>
+            </select></label
+          >
+          <label>Fecha<input name="date" type="date" required /></label>
+          <label
+            >Dirección<input
+              name="address"
+              required
+              placeholder="Calle y número"
+          /></label>
+        </div>
+        <label
+          >Notas<textarea
+            name="notes"
+            rows="4"
+            placeholder="Indica detalles del vehículo o del hogar…"
+          ></textarea>
+        </label>
+        <button class="btn btn--primary" type="submit">Confirmar</button>
+        <p class="form__msg" id="formMsg" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- INSTAGRAM -->
+    <section id="instagram" class="section container reveal">
+      <header class="section__head">
+        <p class="kicker">Instagram</p>
+        <h2>Síguenos en <span class="grad">@el_lavaderito</span></h2>
+      </header>
+      <div class="ig">
+        <a
+          class="ig__item"
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            loading="lazy"
+            decoding="async"
+            src="https://images.unsplash.com/photo-1534237710431-e2fc698436d0?auto=format&fit=crop&w=600&q=80"
+            alt=""
+          />
+        </a>
+        <a
+          class="ig__item"
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            loading="lazy"
+            decoding="async"
+            src="https://images.unsplash.com/photo-1532634896-26909d0d4b6a?auto=format&fit=crop&w=600&q=80"
+            alt=""
+          />
+        </a>
+        <a
+          class="ig__item"
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            loading="lazy"
+            decoding="async"
+            src="https://images.unsplash.com/photo-1520975922284-9d1a7c1d9c6a?auto=format&fit=crop&w=600&q=80"
+            alt=""
+          />
+        </a>
+        <a
+          class="ig__item"
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            loading="lazy"
+            decoding="async"
+            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80"
+            alt=""
+          />
+        </a>
+        <a
+          class="ig__item"
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            loading="lazy"
+            decoding="async"
+            src="https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=600&q=80"
+            alt=""
+          />
+        </a>
+        <a
+          class="ig__item"
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            loading="lazy"
+            decoding="async"
+            src="https://images.unsplash.com/photo-1532634896-26909d0d4b6a?auto=format&fit=crop&w=600&q=80"
+            alt=""
+          />
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div>© <span id="year"></span> El Lavaderito</div>
+        <div>
+          © 2025 El Lavaderito. Todos los derechos reservados. Málaga, España ·
+          Buenos Aires, Argentina · +34 611 883 898 · info@ellavaderito.com
+        </div>
+        <a href="/aviso-legal">Aviso legal</a> ·
+        <a href="/privacidad">Política de privacidad</a> ·
+        <a href="/cookies">Política de cookies</a>
+      </div>
+    </footer>
+  <!-- Modal Política de cookies -->
+  <div id="cookie-modal" class="cookie-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="cookie-modal__backdrop"></div>
+    <div class="cookie-modal__panel" role="document">
+      <h2 class="cookie-modal__title">Política de cookies</h2>
+      <p class="cookie-modal__text">
+        Utilizamos solo cookies técnicas necesarias para que esta web funcione correctamente.
+        No usamos cookies de publicidad ni de analítica. Puedes leer más en nuestra
+        <a href="cookies.html" target="_blank" rel="noopener">Política de cookies</a>.
+      </p>
+      <div class="cookie-modal__actions">
+        <a href="cookies.html" target="_blank" rel="noopener" class="btn btn--ghost">Ver más info</a>
+        <button type="button" id="cookie-accept" class="btn btn--primary">Aceptar y continuar</button>
+      </div>
+    </div>
   </div>
-</header>
 
+    <!-- WhatsApp CTA -->Hola 👋, he visto vuestra web y me gustaría pedir
+    información y precio para un servicio. ¿Podrías ayudarme?
 
-  <!-- HERO -->
-  <section id="hero" class="hero" aria-label="Servicios principales">
-    <div class="swiper hero-swiper" role="region" aria-roledescription="carrusel" aria-label="Servicios destacados">
-      <div class="swiper-wrapper">
-        <!-- Slide Vehículos -->
-        <div class="swiper-slide slide">
-          <img class="slide__img"
-               src="assets/car.jpg"
-               alt="" fetchpriority="high" decoding="async">
-          <div class="overlay overlay--left"></div>
-          <div class="overlay overlay--vignette"></div>
-          <div class="slide__content container">
-            <p class="kicker">Vehículos</p>
-            <h1>Brillo total para tu <span class="grad">auto, moto o furgoneta</span></h1>
-            <p class="sub">Exterior + interior, tapicería y detailing profesional a domicilio.</p>
-            <div class="cta">
-              <a href="#contacto" class="btn btn--primary">Reservar ahora</a>
-              <a href="#servicios" class="btn btn--ghost">Ver más</a>
-            </div>
-            <ul class="tags"><li>Exterior</li><li>Interior</li><li>Tapicería</li><li>Detailing</li></ul>
-          </div>
-        </div>
+    <a
+      class="wa-float"
+      href="https://wa.me/34611883895?text=Hola, he visto vuestra web y me gustaría pedir información y precio para un servicio. ¿Podrías ayudarme?"
+      aria-label="WhatsApp"
+    ></a>
 
-        <!-- Slide Hogar -->
-        <div class="swiper-slide slide slide--home">
-          <img class="slide__img"
-               src="assets/hogar.jpg"
-               alt="Limpieza a vapor de tapicerías" decoding="async">
-          <div class="overlay overlay--left"></div>
-          <div class="overlay overlay--vignette"></div>
-          <div class="slide__content container">
-            <p class="kicker">Hogar</p>
-            <h2>Tapicerías y <span class="grad">moquetas impecables</span></h2>
-            <p class="sub">Sofás, colchones y alfombras con higienización profunda a vapor.</p>
-            <div class="cta">
-              <a href="#contacto" class="btn btn--primary">Cotizar</a>
-              <a href="#servicios" class="btn btn--ghost">Saber más</a>
-            </div>
-            <ul class="tags"><li>Sofás</li><li>Colchones</li><li>Moquetas</li><li>Vapor Pro</li></ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Controles -->
-      <button class="swiper-button-prev slider-btn" aria-label="Anterior">
-        <svg viewBox="0 0 24 24"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-      </button>
-      <button class="swiper-button-next slider-btn" aria-label="Siguiente">
-        <svg viewBox="0 0 24 24"><path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
-      </button>
-    </div>
-  </section>
-
-  <!-- Separador -->
-  <div class="section-sep" aria-hidden="true">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z"></path>
-    </svg>
-  </div>
-
-  <!-- SERVICIOS -->
-  <section id="servicios" class="service-section container reveal">
-    <header class="section__head">
-      <p class="kicker">Servicios</p>
-      <h2>Nuestros <span class="grad">servicios</span> principales</h2>
-      <p class="sub">Limpieza integral de vehículos y del hogar con equipos profesionales a vapor.</p>
-    </header>
-
-    <div class="swiper services-swiper" aria-label="Servicios en carrusel">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" data-servicio="Exterior" style="--bg:url(https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1200&q=80)">
-          <div class="slide-mask"></div>
-          <div class="slide-desc">
-            <h3>Exterior Pro</h3>
-            <p>Espuma activa, llantas y sellador rápido.</p>
-          </div>
-        </div>
-        <div class="swiper-slide" data-servicio="Tapicería" style="--bg:url(https://images.unsplash.com/photo-1597007255353-0826f31f2f2b?auto=format&fit=crop&w=1200&q=80)">
-          <div class="slide-mask"></div>
-          <div class="slide-desc">
-            <h3>Interior & Tapicería</h3>
-            <p>Aspirado profundo y textiles a vapor.</p>
-          </div>
-        </div>
-        <div class="swiper-slide" data-servicio="Detailing" style="--bg:url(https://images.unsplash.com/photo-1618835962148-cf2b0f1f2e8f?auto=format&fit=crop&w=1200&q=80)">
-          <div class="slide-mask"></div>
-          <div class="slide-desc">
-            <h3>Detailing</h3>
-            <p>Descontaminado, cera/sellador y detalles finos.</p>
-          </div>
-        </div>
-        <div class="swiper-slide" data-servicio="Sofás/Colchones" style="--bg:url(https://images.unsplash.com/photo-1582582494700-74e4b0e3d5e3?auto=format&fit=crop&w=1200&q=80)">
-          <div class="slide-mask"></div>
-          <div class="slide-desc">
-            <h3>Sofás & Colchones</h3>
-            <p>Higienización a vapor y neutralización de olores.</p>
-          </div>
-        </div>
-      </div>
-
-      <button class="swiper-button-prev slider-btn" aria-label="Anterior">
-        <svg viewBox="0 0 24 24"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-      </button>
-      <button class="swiper-button-next slider-btn" aria-label="Siguiente">
-        <svg viewBox="0 0 24 24"><path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
-      </button>
-    </div>
-  </section>
-
-  <!-- SOBRE MÍ -->
-  <section id="about" class="section container about reveal">
-    <div>
-      <p class="kicker">Sobre mí</p>
-      <h2>Somos <span class="grad">El Lavaderito</span></h2>
-      <p class="sub">Más de 5 años dejando impecables vehículos y hogares. Usamos químicos biodegradables y maquinaria de vapor profesional. Servicio a domicilio con horarios flexibles.</p>
-      <ul class="ticks">
-        <li>Eco-friendly</li>
-        <li>24h respuesta</li>
-        <li>4.9/5 clientes</li>
-      </ul>
-      <div class="about__stats">
-        <div><strong>1.5K+</strong><span>Servicios</span></div>
-        <div><strong>5+</strong><span>Años</span></div>
-        <div><strong>4.9</strong><span>Valoración</span></div>
-      </div>
-    </div>
-    <div class="about__media">
-      <img src="https://images.unsplash.com/photo-1571939228382-b2f2b585ce15?auto=format&fit=crop&w=1400&q=80" alt="Equipo trabajando">
-    </div>
-  </section>
-
-  <!-- OPINIONES -->
-  <section id="opiniones" class="section container testi reveal">
-    <header class="section__head">
-      <p class="kicker">Opiniones</p>
-      <h2>Qué dicen <span class="grad">nuestros clientes</span></h2>
-    </header>
-
-    <div class="swiper testi-swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <article class="t">
-            <p class="t__text">“Llegaron puntuales y dejaron el coche como nuevo. La tapicería quedó perfecta. Repetiré.”</p>
-            <div class="t__meta">
-              <img src="https://i.pravatar.cc/80?img=12" alt="">
-              <div><strong>María G.</strong><div>Lavado Premium</div></div>
-            </div>
-          </article>
-        </div>
-        <div class="swiper-slide">
-          <article class="t">
-            <p class="t__text">“Súper recomendados. El sofá perdió manchas antiguas y el olor desapareció al instante.”</p>
-            <div class="t__meta">
-              <img src="https://i.pravatar.cc/80?img=18" alt="">
-              <div><strong>Pablo R.</strong><div>Sofá a vapor</div></div>
-            </div>
-          </article>
-        </div>
-        <div class="swiper-slide">
-          <article class="t">
-            <p class="t__text">“Excelente trato y acabado espejo. Las llantas quedaron espectaculares.”</p>
-            <div class="t__meta">
-              <img src="https://i.pravatar.cc/80?img=7" alt="">
-              <div><strong>Laura M.</strong><div>Detailing</div></div>
-            </div>
-          </article>
-        </div>
-      </div>
-      <button class="swiper-button-prev slider-btn" aria-label="Anterior">
-        <svg viewBox="0 0 24 24"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-      </button>
-      <button class="swiper-button-next slider-btn" aria-label="Siguiente">
-        <svg viewBox="0 0 24 24"><path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
-      </button>
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-  <section id="contacto" class="section container contact reveal">
-    <header class="section__head">
-      <p class="kicker">Contacto</p>
-      <h2>Reserva o <span class="grad">pide presupuesto</span></h2>
-    </header>
-    <form class="form" id="formBooking" novalidate>
-      <div class="form__grid">
-        <label>Nombre<input name="name" required placeholder="Tu nombre"></label>
-        <label>Teléfono<input name="phone" type="tel" required placeholder="+34 600 000 000"></label>
-        <label>Email<input name="email" type="email" required placeholder="tu@email.com"></label>
-        <label>Servicio<select name="service" required>
-          <option value="">Selecciona…</option>
-          <option>Exterior</option><option>Interior</option>
-          <option>Tapicería</option><option>Detailing</option>
-          <option>Sofás/Colchones</option>
-        </select></label>
-        <label>Fecha<input name="date" type="date" required></label>
-        <label>Dirección<input name="address" required placeholder="Calle y número"></label>
-      </div>
-      <label>Notas<textarea name="notes" rows="4" placeholder="Indica detalles del vehículo o del hogar…"></textarea></label>
-      <button class="btn btn--primary" type="submit">Confirmar</button>
-      <p class="form__msg" id="formMsg" role="status" aria-live="polite"></p>
-    </form>
-  </section>
-
-  <!-- INSTAGRAM -->
-  <section id="instagram" class="section container reveal">
-    <header class="section__head">
-      <p class="kicker">Instagram</p>
-      <h2>Síguenos en <span class="grad">@el_lavaderito</span></h2>
-    </header>
-    <div class="ig">
-      <a class="ig__item" href="https://instagram.com" target="_blank" rel="noopener">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1534237710431-e2fc698436d0?auto=format&fit=crop&w=600&q=80" alt="">
-      </a>
-      <a class="ig__item" href="https://instagram.com" target="_blank" rel="noopener">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1532634896-26909d0d4b6a?auto=format&fit=crop&w=600&q=80" alt="">
-      </a>
-      <a class="ig__item" href="https://instagram.com" target="_blank" rel="noopener">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1520975922284-9d1a7c1d9c6a?auto=format&fit=crop&w=600&q=80" alt="">
-      </a>
-      <a class="ig__item" href="https://instagram.com" target="_blank" rel="noopener">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80" alt="">
-      </a>
-      <a class="ig__item" href="https://instagram.com" target="_blank" rel="noopener">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=600&q=80" alt="">
-      </a>
-      <a class="ig__item" href="https://instagram.com" target="_blank" rel="noopener">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1532634896-26909d0d4b6a?auto=format&fit=crop&w=600&q=80" alt="">
-      </a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer__grid">
-      <div>© <span id="year"></span> El Lavaderito</div>
-      <div>Hecho con ❤️ en Málaga</div>
-    </div>
-  </footer>
-
-  <!-- WhatsApp CTA -->Hola 👋, he visto vuestra web y me gustaría pedir información y precio para un servicio. ¿Podrías ayudarme?
-
-  <a class="wa-float" href="https://wa.me/34611883895?text=Hola, he visto vuestra web y me gustaría pedir información y precio para un servicio. ¿Podrías ayudarme?" aria-label="WhatsApp"></a>
-
-  <!-- Swiper JS + App -->
-  <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js" defer></script>
-  <script src="app.js" defer></script>
-</body>
+    <!-- Swiper JS + App -->
+    <script
+      src="https://unpkg.com/swiper@10/swiper-bundle.min.js"
+      defer
+    ></script>
+    <script src="app.js" defer></script>
+  </body>
 </html>
