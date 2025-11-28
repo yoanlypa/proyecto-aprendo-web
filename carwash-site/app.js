@@ -107,6 +107,8 @@ form?.addEventListener('submit', (e) => {
     menu.classList.add('open');
     document.body.classList.add('no-scroll');
     toggle.setAttribute('aria-expanded', 'true');
+    toggle.classList.add('is-active');
+    toggle.setAttribute('aria-label', 'Cerrar menú');
     // foco accesible: llevar foco al primer enlace del menú
     setTimeout(() => links[0]?.focus(), 0);
   };
@@ -115,6 +117,8 @@ form?.addEventListener('submit', (e) => {
     menu.classList.remove('open');
     document.body.classList.remove('no-scroll');
     toggle.setAttribute('aria-expanded', 'false');
+    toggle.classList.remove('is-active');
+    toggle.setAttribute('aria-label', 'Abrir menú');
     toggle.focus();
   };
 
