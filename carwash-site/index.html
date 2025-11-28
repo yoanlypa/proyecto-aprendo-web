@@ -381,53 +381,107 @@
         <p class="kicker">Contacto</p>
         <h2>Reserva o <span class="grad">pide presupuesto</span></h2>
       </header>
-      <form class="form" id="formBooking" novalidate>
-        <div class="form__grid">
-          <label
-            >Nombre<input name="name" required placeholder="Tu nombre"
-          /></label>
-          <label
-            >Teléfono<input
-              name="phone"
-              type="tel"
-              required
-              placeholder="+34 600 000 000"
-          /></label>
-          <label
-            >Email<input
-              name="email"
-              type="email"
-              required
-              placeholder="tu@email.com"
-          /></label>
-          <label
-            >Servicio<select name="service" required>
-              <option value="">Selecciona…</option>
-              <option>Exterior</option>
-              <option>Interior</option>
-              <option>Tapicería</option>
-              <option>Detailing</option>
-              <option>Sofás/Colchones</option>
-            </select></label
-          >
-          <label>Fecha<input name="date" type="date" required /></label>
-          <label
-            >Dirección<input
-              name="address"
-              required
-              placeholder="Calle y número"
-          /></label>
+      <div class="contact__grid">
+        <div class="contact-card">
+          <div class="contact-card__head">
+            <p class="contact-card__eyebrow">Respuesta rápida</p>
+            <h3>Te atendemos en menos de 2 minutos</h3>
+            <p class="contact-card__sub">Cuéntanos qué servicio necesitas y coordinamos día, horario y ubicación a tu medida.</p>
+          </div>
+          <div class="contact-card__highlights">
+            <div>
+              <span class="dot dot--good"></span>
+              Limpieza eco a vapor sin químicos agresivos.
+            </div>
+            <div>
+              <span class="dot dot--good"></span>
+              Servicio móvil en Málaga y alrededores.
+            </div>
+            <div>
+              <span class="dot dot--good"></span>
+              Confirmación por WhatsApp o email.
+            </div>
+          </div>
+          <div class="contact-card__meta">
+            <div>
+              <p class="meta__label">Tiempo estimado</p>
+              <p class="meta__value">45-90 min por vehículo</p>
+            </div>
+            <div>
+              <p class="meta__label">Horarios</p>
+              <p class="meta__value">Lunes a sábado · 09:00 - 20:00</p>
+            </div>
+            <div>
+              <p class="meta__label">Contacto directo</p>
+              <p class="meta__value">+34 611 883 898</p>
+            </div>
+          </div>
         </div>
-        <label
-          >Notas<textarea
-            name="notes"
-            rows="4"
-            placeholder="Indica detalles del vehículo o del hogar…"
-          ></textarea>
-        </label>
-        <button class="btn btn--primary" type="submit">Confirmar</button>
-        <p class="form__msg" id="formMsg" role="status" aria-live="polite"></p>
-      </form>
+        <form class="form" id="formBooking" novalidate>
+          <div class="form__header">
+            <div>
+              <p class="form__eyebrow">Agenda online</p>
+              <h3>Déjanos tus datos y reserva</h3>
+            </div>
+            <p class="form__hint">Campos marcados son obligatorios para ajustar la ruta y enviarte la confirmación.</p>
+          </div>
+          <div class="form__grid">
+            <label
+              >Nombre<input name="name" required placeholder="Tu nombre"
+            /></label>
+            <label
+              >Teléfono<input
+                name="phone"
+                type="tel"
+                required
+                placeholder="+34 600 000 000"
+            /></label>
+            <label
+              >Email<input
+                name="email"
+                type="email"
+                required
+                placeholder="tu@email.com"
+            /></label>
+            <label
+              >Servicio<select name="service" required>
+                <option value="">Selecciona…</option>
+                <option>Exterior</option>
+                <option>Interior</option>
+                <option>Tapicería</option>
+                <option>Detailing</option>
+                <option>Sofás/Colchones</option>
+              </select></label
+            >
+            <label>Fecha<input name="date" type="date" required /></label>
+            <label
+              >Dirección<input
+                name="address"
+                required
+                placeholder="Calle y número"
+            /></label>
+          </div>
+          <div class="form__row">
+            <label class="w-2"
+              >Notas<textarea
+                name="notes"
+                rows="4"
+                placeholder="Indica detalles del vehículo, plaza de garaje, tela/tapicería o preferencias de horario"
+              ></textarea>
+            </label>
+            <div class="form__side">
+              <p class="form__pill">Confirmación en el día</p>
+              <p class="form__pill">Pago seguro tras el servicio</p>
+              <p class="form__pill">Equipo profesional y eco</p>
+            </div>
+          </div>
+          <div class="form__actions">
+            <button class="btn btn--primary" type="submit">Confirmar</button>
+            <p class="form__legal">Tus datos solo se usan para gestionar tu reserva. Puedes escribirnos directo a <a href="mailto:info@ellavaderito.com">info@ellavaderito.com</a>.</p>
+          </div>
+          <p class="form__msg" id="formMsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </section>
 
     <!-- INSTAGRAM -->
@@ -488,11 +542,47 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="container footer__grid">
-        <div>© <span id="year"></span> El Lavaderito. Todos los derechos reservados. Málaga, España ·
-          Buenos Aires, Argentina · +34 611 883 898 · info@ellavaderito.com</div>
-        <a href="/aviso-legal">Aviso legal</a> ·
-        <a href="/privacidad">Política de privacidad</a> ·
-        <a href="/cookies">Política de cookies</a>
+        <div class="footer__brand">
+          <img src="assets/logo.svg" alt="El Lavaderito" class="footer__logo" />
+          <div>
+            <p class="footer__title">Detailing y vapor profesional</p>
+            <p class="footer__subtitle">Cuidamos tu vehículo y tu hogar con procesos eco y resultados espejo.</p>
+            <div class="footer__chips">
+              <span class="chip">+600 limpiezas completadas</span>
+              <span class="chip">Garantía de satisfacción</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer__links">
+          <div>
+            <h3>Contacto</h3>
+            <ul>
+              <li><span class="dot dot--good"></span>Málaga · Torremolinos · Marbella</li>
+              <li><span class="dot dot--good"></span>+34 611 883 898</li>
+              <li><span class="dot dot--good"></span>info@ellavaderito.com</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Atajos</h3>
+            <ul>
+              <li><a href="#servicios">Servicios</a></li>
+              <li><a href="#about">Sobre mí</a></li>
+              <li><a href="#opiniones">Opiniones</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="/aviso-legal">Aviso legal</a></li>
+              <li><a href="/privacidad">Política de privacidad</a></li>
+              <li><a href="/cookies">Política de cookies</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div>© <span id="year"></span> El Lavaderito. Todos los derechos reservados.</div>
+        <div class="footer__badge">Atención personalizada y amigable</div>
       </div>
     </footer>
   <!-- Modal Política de cookies -->
